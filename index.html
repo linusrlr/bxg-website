@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -13,6 +12,42 @@
 <meta property="og:description" content="22+ years of authentic Muay Thai training in Tanjong Katong, Singapore. Classes 7 days a week.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥊</text></svg>">
+<link rel="canonical" href="https://linusrlr.github.io/bxg-website/">
+
+<!-- SEO: Structured data so Google shows rich results (address, hours, rating) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  "name": "BXG Muay Thai Academy",
+  "description": "Singapore's original Muay Thai academy since 2003. Expert-led classes from fundamentals to competition training, 7 days a week.",
+  "url": "https://linusrlr.github.io/bxg-website/",
+  "telephone": "+6563488380",
+  "email": "enquiry@bxgfitness.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "356 Tanjong Katong Road",
+    "addressLocality": "Singapore",
+    "postalCode": "437119",
+    "addressCountry": "SG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 1.3052,
+    "longitude": 103.9053
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Wednesday","Friday"], "opens": "09:30", "closes": "21:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Thursday"], "opens": "09:30", "closes": "21:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:30", "closes": "12:30" }
+  ],
+  "priceRange": "$45 - $298",
+  "sameAs": [
+    "https://www.instagram.com/bxgmta/",
+    "https://www.facebook.com/BXGBoxingFitness/"
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,6 +97,17 @@ body {
 img { max-width:100%; display:block; }
 a { color:inherit; text-decoration:none; }
 button { cursor:pointer; border:none; font-family:inherit; background:none; }
+
+/* Accessibility: visible focus ring for keyboard users */
+:focus-visible { outline:2px solid var(--red); outline-offset:2px; }
+/* Skip-nav link: hidden until focused via keyboard */
+.skip-nav {
+  position:absolute; top:-100%; left:16px; z-index:9999;
+  background:var(--red); color:var(--pure-white);
+  padding:12px 24px; font-family:var(--font-condensed);
+  font-weight:600; font-size:0.85rem; letter-spacing:1px;
+}
+.skip-nav:focus { top:16px; }
 
 .container { max-width:var(--container); margin:0 auto; padding:0 20px; }
 
@@ -772,8 +818,13 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
+<!-- Accessibility: skip to main content link -->
+<a href="#hero" class="skip-nav">Skip to content</a>
+
+<!-- ============================
+     NAVIGATION
+     ============================ -->
+<nav class="nav" id="nav" aria-label="Main navigation">
   <div class="container">
     <a href="#" class="nav-logo">BXG<span>MTA</span></a>
     <ul class="nav-links">
@@ -783,7 +834,7 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
       <li><a href="#trainers">Trainers</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" class="nav-cta-link">Book Class</a></li>
+      <li><a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" class="nav-cta-link">Book Class</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -791,19 +842,25 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
+<!-- ============================
+     MOBILE MENU OVERLAY
+     ============================ -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
   <a href="#about" data-close>About</a>
   <a href="#classes" data-close>Classes</a>
   <a href="#schedule" data-close>Schedule</a>
   <a href="#trainers" data-close>Trainers</a>
   <a href="#pricing" data-close>Pricing</a>
   <a href="#contact" data-close>Contact</a>
-  <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" style="color:var(--red);">Book a Class →</a>
-  <a href="https://www.instagram.com/bxgmta/" target="_blank" style="font-size:1rem; color:var(--gray-light);">@bxgmta on Instagram</a>
+  <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" style="color:var(--red);">Book a Class →</a>
+  <a href="https://www.instagram.com/bxgmta/" target="_blank" rel="noopener" style="font-size:1rem; color:var(--gray-light);">@bxgmta on Instagram</a>
 </div>
 
-<!-- HERO -->
+<!-- ============================
+     HERO — Main headline & CTA
+     Primary keywords: muay thai singapore, muay thai academy
+     ============================ -->
+<main>
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="container hero-content">
@@ -811,7 +868,7 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
     <h1>TRAIN WITH<br><em>PURPOSE.</em><br>FIGHT WITH<br>HEART.</h1>
     <p class="hero-sub">Singapore's original Muay Thai academy — 22 years of forging fighters and transforming lives. From your first punch to fight night, this is where it starts.</p>
     <div class="hero-actions">
-      <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" class="btn-primary">Book a Class</a>
+      <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" class="btn-primary" aria-label="Book a Muay Thai class at BXG">Book a Class</a>
       <a href="#classes" class="btn-outline">Explore Programs</a>
     </div>
     <div class="hero-stats">
@@ -823,7 +880,10 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ============================
+     ABOUT — Gym story & USPs
+     Keywords: muay thai gym tanjong katong, muay thai training singapore
+     ============================ -->
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid">
@@ -847,7 +907,10 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
   </div>
 </section>
 
-<!-- BENEFITS -->
+<!-- ============================
+     BENEFITS — Why train Muay Thai
+     Keywords: muay thai benefits, muay thai fitness singapore
+     ============================ -->
 <section class="benefits" id="benefits">
   <div class="container">
     <div class="benefits-header reveal">
@@ -866,12 +929,15 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
   </div>
 </section>
 
-<!-- CLASSES -->
+<!-- ============================
+     CLASSES — Muay Thai programs overview
+     Keywords: muay thai classes singapore, muay thai beginners
+     ============================ -->
 <section class="classes" id="classes">
   <div class="container">
     <div class="classes-header reveal">
       <div><div class="section-label">Our Programs</div><h2 class="section-title">FIND YOUR LEVEL</h2></div>
-      <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" class="btn-outline" style="margin-bottom:4px;">Book a Class →</a>
+      <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" class="btn-outline" style="margin-bottom:4px;">Book a Class →</a>
     </div>
     <div class="classes-grid">
       <div class="class-card reveal">
@@ -902,7 +968,10 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
   </div>
 </section>
 
-<!-- SCHEDULE -->
+<!-- ============================
+     SCHEDULE — Weekly class timetable
+     Keywords: muay thai schedule singapore, muay thai class times
+     ============================ -->
 <section class="schedule" id="schedule">
   <div class="container">
     <div class="schedule-header reveal">
@@ -983,12 +1052,15 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
       </div>
     </div>
     <div style="text-align:center; margin-top:28px;">
-      <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" class="btn-primary">Book Your Class Now</a>
+      <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" class="btn-primary">Book Your Class Now</a>
     </div>
   </div>
 </section>
 
-<!-- TRAINERS -->
+<!-- ============================
+     TRAINERS — Coach profiles
+     Keywords: muay thai coaches singapore, muay thai instructor
+     ============================ -->
 <section class="trainers" id="trainers">
   <div class="container">
     <div class="reveal">
@@ -1067,7 +1139,7 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
           <li>No commitment required</li>
           <li>Perfect for visitors & trying out</li>
         </ul>
-        <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" class="btn-outline">Book a Session</a>
+        <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" class="btn-outline">Book a Session</a>
       </div>
       <div class="price-card reveal">
         <div class="price-plan">10-Session Pack</div>
@@ -1079,7 +1151,7 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
           <li>All class types included</li>
           <li>$38 per session — save 15%</li>
         </ul>
-        <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" class="btn-outline">Get Your Pack</a>
+        <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" class="btn-outline">Get Your Pack</a>
       </div>
       <div class="price-card featured reveal">
         <div class="price-plan">1 Month Unlimited</div>
@@ -1091,7 +1163,7 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
           <li>Full gym access</li>
           <li>No long-term commitment</li>
         </ul>
-        <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" class="btn-primary">Start Training</a>
+        <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" class="btn-primary">Start Training</a>
       </div>
       <div class="price-card reveal">
         <div class="price-plan">6 Months</div>
@@ -1103,7 +1175,7 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
           <li>Deducted monthly — no lump sum</li>
           <li>6-month commitment</li>
         </ul>
-        <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" class="btn-outline">Commit & Save</a>
+        <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" class="btn-outline">Commit & Save</a>
       </div>
       <div class="price-card reveal">
         <div class="price-plan">12 Months — Best Value</div>
@@ -1115,7 +1187,7 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
           <li>Deducted monthly — no lump sum</li>
           <li>12-month commitment</li>
         </ul>
-        <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" class="btn-outline">Best Deal →</a>
+        <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" class="btn-outline">Best Deal →</a>
       </div>
     </div>
   </div>
@@ -1140,12 +1212,12 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
         <div class="section-label">FAQ</div>
         <h3 class="section-title" style="font-size:1.8rem; margin-bottom:20px;">COMMON QUESTIONS</h3>
         <div class="faq-section">
-          <div class="faq-item"><button class="faq-q">Do I need any experience?</button><div class="faq-a"><p>Not at all. Our Fundamentals classes are designed for complete beginners. Most members started with zero martial arts experience.</p></div></div>
-          <div class="faq-item"><button class="faq-q">How fit do I need to be?</button><div class="faq-a"><p>You don't need to be fit to start — you start to get fit. Coaches scale exercises to your level. Just show up and give your best.</p></div></div>
-          <div class="faq-item"><button class="faq-q">Will I get hit?</button><div class="faq-a"><p>Fundamentals and Pad Work classes are technique-focused. Full-contact sparring only happens in Advanced classes when you're ready.</p></div></div>
-          <div class="faq-item"><button class="faq-q">What equipment do I need?</button><div class="faq-a"><p>We can lend gloves and wraps for your first sessions. As you continue, you'll want your own boxing gloves, hand wraps, and shin guards.</p></div></div>
-          <div class="faq-item"><button class="faq-q">Is it suitable for women?</button><div class="faq-a"><p>100%. We have a strong female membership. Muay Thai builds fitness, confidence, and real self-defense skills regardless of gender.</p></div></div>
-          <div class="faq-item"><button class="faq-q">How do I book?</button><div class="faq-a"><p>All bookings are through our VibeFam page. Just pick a class, choose your time slot, and you're in. You can also WhatsApp us for any questions.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Do I need any experience?</button><div class="faq-a"><p>Not at all. Our Fundamentals classes are designed for complete beginners. Most members started with zero martial arts experience.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">How fit do I need to be?</button><div class="faq-a"><p>You don't need to be fit to start — you start to get fit. Coaches scale exercises to your level. Just show up and give your best.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Will I get hit?</button><div class="faq-a"><p>Fundamentals and Pad Work classes are technique-focused. Full-contact sparring only happens in Advanced classes when you're ready.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">What equipment do I need?</button><div class="faq-a"><p>We can lend gloves and wraps for your first sessions. As you continue, you'll want your own boxing gloves, hand wraps, and shin guards.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Is it suitable for women?</button><div class="faq-a"><p>100%. We have a strong female membership. Muay Thai builds fitness, confidence, and real self-defense skills regardless of gender.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">How do I book?</button><div class="faq-a"><p>All bookings are through our VibeFam page. Just pick a class, choose your time slot, and you're in. You can also WhatsApp us for any questions.</p></div></div>
         </div>
       </div>
     </div>
@@ -1158,7 +1230,7 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
     <div class="section-label" style="justify-content:center;">Follow the Journey</div>
     <h2 class="section-title" style="font-size:clamp(1.8rem,4vw,2.8rem); margin-bottom:12px;">@BXGMTA ON INSTAGRAM</h2>
     <p class="section-sub" style="margin:0 auto 28px; text-align:center;">Training highlights, fight prep, community vibes, and behind-the-scenes from the gym floor.</p>
-    <a href="https://www.instagram.com/bxgmta/" target="_blank" class="btn-outline" style="border-color:rgba(225,48,108,0.4); color:#E1306C;">Follow @bxgmta →</a>
+    <a href="https://www.instagram.com/bxgmta/" target="_blank" rel="noopener" class="btn-outline" style="border-color:rgba(225,48,108,0.4); color:#E1306C;">Follow @bxgmta →</a>
   </div>
 </section>
 
@@ -1169,8 +1241,8 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
     <h2 class="section-title">YOUR FIRST CLASS<br>AWAITS.</h2>
     <p class="section-sub">No pressure. No commitment. Book a session, show up, train hard, and see if BXG is right for you.</p>
     <div class="cta-btns">
-      <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" class="btn-primary">Book a Class Now</a>
-      <a href="https://wa.me/6563488380?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20classes%20at%20BXG" target="_blank" class="btn-whatsapp">💬 WhatsApp Us</a>
+      <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" class="btn-primary">Book a Class Now</a>
+      <a href="https://wa.me/6563488380?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20classes%20at%20BXG" target="_blank" rel="noopener" class="btn-whatsapp">💬 WhatsApp Us</a>
     </div>
   </div>
 </section>
@@ -1186,7 +1258,7 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
         <div class="contact-item"><div class="contact-icon">✉️</div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:enquiry@bxgfitness.com" style="color:var(--pure-white);">enquiry@bxgfitness.com</a></div></div></div>
         <div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-label">Hours</div><div class="contact-value">Mon–Fri: Classes 9:30 AM – 9:00 PM<br>Sat–Sun: 10:30 AM – 12:30 PM</div></div></div>
         <div class="contact-item"><div class="contact-icon">🚇</div><div><div class="contact-label">Getting Here</div><div class="contact-value">Dakota MRT (CC8) · Paya Lebar MRT (EW8/CC9)<br>Tanjong Katong MRT (TE25)</div></div></div>
-        <iframe class="map-embed" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.1!2d103.9053!3d1.3052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19946b15578e%3A0x57d3d3101c9bdb67!2sBXG%20Boxing%20%26%20Fitness!5e0!3m2!1sen!2ssg!4v1" allowfullscreen loading="lazy"></iframe>
+        <iframe class="map-embed" title="BXG Muay Thai Academy location on Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.1!2d103.9053!3d1.3052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19946b15578e%3A0x57d3d3101c9bdb67!2sBXG%20Boxing%20%26%20Fitness!5e0!3m2!1sen!2ssg!4v1" allowfullscreen loading="lazy"></iframe>
       </div>
       <div class="reveal">
         <h3 style="font-family:var(--font-display); font-size:1.5rem; letter-spacing:1px; margin-bottom:6px;">GET IN TOUCH</h3>
@@ -1196,23 +1268,26 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
         <div class="form-field"><label>Phone / WhatsApp</label><input type="tel" placeholder="+65"></div>
         <div class="form-field"><label>Experience</label><select><option value="">Select your level</option><option>Complete Beginner</option><option>Some Experience</option><option>Intermediate</option><option>Advanced / Competition</option></select></div>
         <div class="form-field"><label>Message</label><textarea placeholder="Tell us about your goals..."></textarea></div>
-        <button class="btn-primary" style="width:100;">Send Message →</button>
+        <button type="submit" class="btn-primary" style="width:100%;">Send Message →</button>
         <div style="text-align:center; margin-top:16px;">
-          <a href="https://wa.me/6563488380?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20BXG" target="_blank" style="font-family:var(--font-condensed); font-size:0.78rem; letter-spacing:1px; color:var(--gray-light);">Or message us directly on <span style="color:#25D366; font-weight:600;">WhatsApp →</span></a>
+          <a href="https://wa.me/6563488380?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20BXG" target="_blank" rel="noopener" style="font-family:var(--font-condensed); font-size:0.78rem; letter-spacing:1px; color:var(--gray-light);">Or message us directly on <span style="color:#25D366; font-weight:600;">WhatsApp →</span></a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ============================
+     FOOTER
+     ============================ -->
+</main>
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand"><div class="footer-logo">BXG<span>MTA</span></div><p>Singapore's legacy Muay Thai academy. 22+ years of authentic training in Tanjong Katong. Follow us <a href="https://www.instagram.com/bxgmta/" target="_blank" style="color:var(--red);">@bxgmta</a></p></div>
+      <div class="footer-brand"><div class="footer-logo">BXG<span>MTA</span></div><p>Singapore's legacy Muay Thai academy. 22+ years of authentic training in Tanjong Katong. Follow us <a href="https://www.instagram.com/bxgmta/" target="_blank" rel="noopener" style="color:var(--red);">@bxgmta</a></p></div>
       <div class="footer-col"><h4>Training</h4><ul><li><a href="#classes">Classes</a></li><li><a href="#schedule">Schedule</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#beginners">Beginner Guide</a></li></ul></div>
       <div class="footer-col"><h4>Gym</h4><ul><li><a href="#about">Our Story</a></li><li><a href="#trainers">Coaches</a></li><li><a href="#testimonials">Reviews</a></li></ul></div>
-      <div class="footer-col"><h4>Connect</h4><ul><li><a href="#contact">Contact</a></li><li><a href="https://wa.me/6563488380" target="_blank">WhatsApp</a></li><li><a href="https://www.instagram.com/bxgmta/" target="_blank">Instagram</a></li><li><a href="https://www.facebook.com/BXGBoxingFitness/" target="_blank">Facebook</a></li><li><a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank">Book Online</a></li></ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul><li><a href="#contact">Contact</a></li><li><a href="https://wa.me/6563488380" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.instagram.com/bxgmta/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/BXGBoxingFitness/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener">Book Online</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 BXG Muay Thai Academy. All rights reserved.</span>
@@ -1223,70 +1298,126 @@ button { cursor:pointer; border:none; font-family:inherit; background:none; }
 
 <!-- STICKY MOBILE CTA -->
 <div class="mobile-sticky-cta">
-  <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" class="btn-primary">Book a Class — Free Trial</a>
+  <a href="https://bookings.vibefam.com/BXGMuaythai" target="_blank" rel="noopener" class="btn-primary">Book a Class — Free Trial</a>
 </div>
 
 <script>
-// Nav scroll
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+/* ========================================
+   BXG Muay Thai Academy — Site Scripts
+   Clean, readable JS for easy maintenance
+   ======================================== */
 
-// Mobile menu
-const toggle=document.getElementById('navToggle');
-const menu=document.getElementById('mobileMenu');
-toggle.addEventListener('click',()=>{
-  toggle.classList.toggle('active');
-  menu.classList.toggle('open');
-  document.body.style.overflow=menu.classList.contains('open')?'hidden':'';
+/* --- Sticky Navigation ---
+   Adds dark background when user scrolls down */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
 });
-menu.querySelectorAll('a[data-close]').forEach(a=>a.addEventListener('click',()=>{
-  toggle.classList.remove('active');
-  menu.classList.remove('open');
-  document.body.style.overflow='';
-}));
 
-// Schedule tabs
-document.querySelectorAll('.schedule-tab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.schedule-tab').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.schedule-day').forEach(d=>d.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById('day-'+tab.dataset.day).classList.add('active');
+/* --- Mobile Menu ---
+   Opens/closes the fullscreen mobile navigation */
+const toggle = document.getElementById('navToggle');
+const menu = document.getElementById('mobileMenu');
+
+toggle.addEventListener('click', () => {
+  const isOpen = menu.classList.toggle('open');
+  toggle.classList.toggle('active');
+  toggle.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+// Close mobile menu when a nav link is tapped
+menu.querySelectorAll('a[data-close]').forEach(link => {
+  link.addEventListener('click', () => {
+    toggle.classList.remove('active');
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
   });
 });
 
-// Auto-select today's day
-const days=['sun','mon','tue','wed','thu','fri','sat'];
-const today=days[new Date().getDay()];
-const todayTab=document.querySelector(`[data-day="${today}"]`);
-if(todayTab){
-  document.querySelectorAll('.schedule-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.schedule-day').forEach(d=>d.classList.remove('active'));
+/* --- Schedule Tabs ---
+   Switches between days in the class timetable */
+document.querySelectorAll('.schedule-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Remove active from all tabs and day panels
+    document.querySelectorAll('.schedule-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.schedule-day').forEach(d => d.classList.remove('active'));
+    // Activate clicked tab and matching day panel
+    tab.classList.add('active');
+    document.getElementById('day-' + tab.dataset.day).classList.add('active');
+  });
+});
+
+// Auto-select today's day on page load
+const dayNames = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+const today = dayNames[new Date().getDay()];
+const todayTab = document.querySelector('[data-day="' + today + '"]');
+if (todayTab) {
+  document.querySelectorAll('.schedule-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.schedule-day').forEach(d => d.classList.remove('active'));
   todayTab.classList.add('active');
-  document.getElementById('day-'+today).classList.add('active');
+  document.getElementById('day-' + today).classList.add('active');
 }
 
-// FAQ
-document.querySelectorAll('.faq-q').forEach(b=>b.addEventListener('click',()=>{
-  const item=b.parentElement;
-  const wasOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!wasOpen) item.classList.add('open');
-}));
+/* --- FAQ Accordion ---
+   Opens/closes FAQ answers, one at a time */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
 
-// Scroll reveal
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('vis');});
-},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    // Close all FAQ items first
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+    // Toggle clicked item
+    if (!wasOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
   });
 });
+
+/* --- Scroll Reveal ---
+   Fades in sections as they enter the viewport */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('vis');
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* --- Smooth Scrolling ---
+   Smooth scroll for all anchor links (#hash) */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+<!-- SEO: FAQ structured data for Google rich results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do I need any fighting experience to start Muay Thai at BXG?", "acceptedAnswer": { "@type": "Answer", "text": "Not at all. Our Fundamentals classes are designed for complete beginners. Most members started with zero martial arts experience." }},
+    { "@type": "Question", "name": "How fit do I need to be to start Muay Thai?", "acceptedAnswer": { "@type": "Answer", "text": "You don't need to be fit to start — you start to get fit. Coaches scale exercises to your level. Just show up and give your best." }},
+    { "@type": "Question", "name": "Will I get hit in Muay Thai class?", "acceptedAnswer": { "@type": "Answer", "text": "Fundamentals and Pad Work classes are technique-focused. Full-contact sparring only happens in Advanced classes when you're ready." }},
+    { "@type": "Question", "name": "What equipment do I need for Muay Thai?", "acceptedAnswer": { "@type": "Answer", "text": "We can lend gloves and wraps for your first sessions. As you continue, you'll want your own boxing gloves, hand wraps, and shin guards." }},
+    { "@type": "Question", "name": "Is Muay Thai suitable for women?", "acceptedAnswer": { "@type": "Answer", "text": "100%. We have a strong female membership. Muay Thai builds fitness, confidence, and real self-defense skills regardless of gender." }},
+    { "@type": "Question", "name": "How do I book a Muay Thai class at BXG Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "All bookings are through our VibeFam page. Just pick a class, choose your time slot, and you're in. You can also WhatsApp us for any questions." }}
+  ]
+}
 </script>
 
 </body>
