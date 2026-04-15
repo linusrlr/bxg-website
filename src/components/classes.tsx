@@ -34,13 +34,13 @@ const classes = [
 
 export function Classes() {
   return (
-    <section id="classes" className="py-[clamp(80px,10vw,140px)]">
+    <section id="classes" className="section-light py-[clamp(80px,10vw,140px)]">
       <div className="max-w-[1200px] mx-auto px-5">
         {/* Header */}
         <FadeUp className="flex items-end justify-between mb-12 flex-wrap gap-4">
           <div>
             <div className="section-label">Our Programs</div>
-            <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-white">
+            <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-[#0C0C0C]">
               FIND YOUR LEVEL
             </h2>
           </div>
@@ -48,7 +48,7 @@ export function Classes() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-transparent text-white font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.85rem] tracking-[2px] uppercase px-8 py-[14px] border border-white/15 hover:border-bxg-red hover:text-bxg-red transition-all mb-1"
+            className="inline-flex items-center gap-2 bg-transparent text-[#0C0C0C] font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.85rem] tracking-[2px] uppercase px-8 py-[14px] border border-[#0C0C0C]/15 hover:border-bxg-red hover:text-bxg-red transition-all mb-1"
           >
             Book a Class
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -57,15 +57,15 @@ export function Classes() {
           </a>
         </FadeUp>
 
-        {/* Typography-driven Cards — no image placeholders */}
-        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {/* Dark cards on light canvas — floating panels */}
+        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {classes.map((cls) => (
             <motion.div
               key={cls.title}
               variants={staggerItem}
-              whileHover={{ y: -4 }}
-              className="bg-bxg-dark-2 overflow-hidden group relative transition-shadow duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.3)]"
-              style={{ borderLeft: `3px solid ${cls.borderColor}` }}
+              whileHover={{ y: -6 }}
+              className="bg-[#0C0C0C] overflow-hidden group relative transition-shadow duration-300 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+              style={{ borderTop: `4px solid ${cls.borderColor}` }}
             >
               <div className="p-8">
                 {/* Badge */}
@@ -80,17 +80,17 @@ export function Classes() {
                 </span>
 
                 {/* Title */}
-                <h3 className="font-[family-name:var(--font-bebas)] text-[1.6rem] tracking-[1.5px] text-white mb-3 leading-[1.1]">
+                <h3 className="font-[family-name:var(--font-bebas)] text-[1.6rem] tracking-[1.5px] text-[#F5F5F0] mb-3 leading-[1.1]">
                   {cls.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-[0.85rem] text-[#888] leading-[1.7] mb-6">
+                <p className="text-[0.85rem] text-[#999] leading-[1.7] mb-6">
                   {cls.desc}
                 </p>
 
                 {/* Meta */}
-                <div className="flex gap-6 pt-4 border-t border-white/6">
+                <div className="flex gap-6 pt-4 border-t border-white/[0.06]">
                   <div className="flex items-center gap-2">
                     <div className="w-[3px] h-[3px] rounded-full bg-white/30" />
                     <span className="font-[family-name:var(--font-barlow-condensed)] text-[0.72rem] tracking-[1.5px] uppercase text-[#666]">

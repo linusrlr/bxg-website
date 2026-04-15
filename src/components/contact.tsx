@@ -51,11 +51,11 @@ const hours = [
 
 export function Contact() {
   return (
-    <section id="contact" className="py-[clamp(80px,10vw,140px)] bg-bxg-dark">
+    <section id="contact" className="section-light py-[clamp(80px,10vw,140px)]">
       <div className="max-w-[1200px] mx-auto px-5">
         <FadeUp>
           <div className="section-label">Find Us</div>
-          <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-white">
+          <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-[#0C0C0C]">
             GET IN TOUCH
           </h2>
         </FadeUp>
@@ -63,21 +63,21 @@ export function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 mt-12">
           {/* Left: Contact Info + Map */}
           <div>
-            {/* Contact Items — thin red accent squares, no emojis */}
+            {/* Contact Items */}
             <div className="space-y-7">
               {contactItems.map((item) => (
                 <FadeUp key={item.label}>
                   <div className="flex gap-4 items-start">
                     {contactIcons[item.label] || <div className="w-[10px] h-[10px] bg-bxg-red/60 mt-1.5 flex-shrink-0" />}
                     <div>
-                      <div className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.68rem] tracking-[2.5px] uppercase text-[#555] mb-1">
+                      <div className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.68rem] tracking-[2.5px] uppercase text-[#666] mb-1">
                         {item.label}
                       </div>
                       <a
                         href={item.href}
                         target={item.href.startsWith("http") ? "_blank" : undefined}
                         rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                        className="text-[0.92rem] text-white leading-[1.6] whitespace-pre-line hover:text-bxg-red transition-colors duration-300"
+                        className="text-[0.92rem] text-[#0C0C0C] leading-[1.6] whitespace-pre-line hover:text-bxg-red transition-colors duration-300"
                       >
                         {item.value}
                       </a>
@@ -89,18 +89,18 @@ export function Contact() {
 
             {/* Operating Hours */}
             <FadeUp delay={0.2}>
-              <div className="mt-10 pt-8 border-t border-white/[0.06]">
-                <div className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.68rem] tracking-[2.5px] uppercase text-[#555] mb-4">
+              <div className="mt-10 pt-8 border-t border-[#0C0C0C]/[0.08]">
+                <div className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.68rem] tracking-[2.5px] uppercase text-[#666] mb-4">
                   Operating Hours
                 </div>
                 <div className="space-y-2.5">
                   {hours.map((h) => (
                     <div key={h.label} className="flex items-center gap-3">
                       <div className="w-[6px] h-[6px] bg-bxg-red/40 flex-shrink-0" />
-                      <span className="font-[family-name:var(--font-barlow-condensed)] text-[0.82rem] text-[#888] w-[130px]">
+                      <span className="font-[family-name:var(--font-barlow-condensed)] text-[0.82rem] text-[#666] w-[130px]">
                         {h.label}
                       </span>
-                      <span className="text-[0.88rem] text-white">
+                      <span className="text-[0.88rem] text-[#0C0C0C]">
                         {h.value}
                       </span>
                     </div>
@@ -114,7 +114,7 @@ export function Contact() {
               <div className="mt-10">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7816!2d103.9031!3d1.3052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da181e6c21e5e7%3A0x1!2s260+Tanjong+Katong+Rd%2C+Singapore+437048!5e0!3m2!1sen!2ssg!4v1!5m2!1sen!2ssg"
-                  className="w-full aspect-video border-0 brightness-[0.8] contrast-[1.1] saturate-0"
+                  className="w-full aspect-video border-0 brightness-[0.95] contrast-[1.05]"
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -124,14 +124,14 @@ export function Contact() {
             </FadeUp>
           </div>
 
-          {/* Right: WhatsApp Contact Card — no fake form */}
+          {/* Right: WhatsApp Contact Card — dark panel on light bg */}
           <FadeUp delay={0.2}>
-            <div className="bg-bxg-dark-2 p-8 border border-white/[0.06] lg:sticky lg:top-24">
+            <div className="bg-[#0C0C0C] p-8 border border-[#0C0C0C] lg:sticky lg:top-24">
               <div className="w-8 h-[2px] bg-bxg-red mb-6" />
-              <h3 className="font-[family-name:var(--font-bebas)] text-[2rem] tracking-[2px] text-white mb-3">
+              <h3 className="font-[family-name:var(--font-bebas)] text-[2rem] tracking-[2px] text-[#F5F5F0] mb-3">
                 REACH OUT ANYTIME
               </h3>
-              <p className="text-[0.88rem] text-[#888] leading-[1.75] mb-8">
+              <p className="text-[0.88rem] text-[#999] leading-[1.75] mb-8">
                 Have a question about classes, pricing, or getting started?
                 The fastest way to reach us is via WhatsApp.
                 We typically respond within the hour during operating hours.
@@ -139,7 +139,7 @@ export function Contact() {
 
               {/* Quick Questions */}
               <div className="space-y-3 mb-8">
-                <div className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.68rem] tracking-[2.5px] uppercase text-[#555] mb-3">
+                <div className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.68rem] tracking-[2.5px] uppercase text-[#666] mb-3">
                   Common Inquiries
                 </div>
                 {[
@@ -170,7 +170,7 @@ export function Contact() {
               <div className="mt-4 text-center">
                 <a
                   href="tel:+6588679387"
-                  className="font-[family-name:var(--font-barlow-condensed)] text-[0.78rem] tracking-[1px] text-[#666] hover:text-white transition-colors duration-300"
+                  className="font-[family-name:var(--font-barlow-condensed)] text-[0.78rem] tracking-[1px] text-[#666] hover:text-[#F5F5F0] transition-colors duration-300"
                 >
                   Or call us at +65 8867 9387
                 </a>

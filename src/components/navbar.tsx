@@ -36,7 +36,7 @@ export function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#0A0A0A]/95 backdrop-blur-xl py-2.5 border-b border-white/[0.05]"
+            ? "bg-[#0C0C0C]/95 backdrop-blur-xl py-2.5 border-b border-white/[0.05] shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
             : "py-5"
         }`}
       >
@@ -54,7 +54,7 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="font-[family-name:var(--font-barlow-condensed)] font-medium text-[0.78rem] tracking-[2px] uppercase text-[#888] hover:text-white transition-colors duration-300"
+                  className="font-[family-name:var(--font-barlow-condensed)] font-medium text-[0.78rem] tracking-[2px] uppercase text-white/60 hover:text-white transition-colors duration-300"
                 >
                   {link.label}
                 </a>
@@ -65,7 +65,7 @@ export function Navbar() {
                 href="https://www.instagram.com/bxgmta/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#666] hover:text-bxg-red transition-colors duration-300"
+                className="text-white/40 hover:text-bxg-red transition-colors duration-300"
                 aria-label="Instagram"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -120,7 +120,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-[#0A0A0A]/98 backdrop-blur-xl z-[1001] flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 bg-[#0C0C0C]/98 backdrop-blur-xl z-[1001] flex flex-col items-center justify-center gap-8"
           >
             {navLinks.map((link, i) => (
               <motion.a

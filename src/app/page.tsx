@@ -17,18 +17,30 @@ export default function Home() {
     <>
       <Navbar />
       <main>
+        {/* Hero: Dark (photo bg) */}
         <Hero />
+        {/* About: Light */}
         <About />
+        {/* Benefits: Dark */}
         <Benefits />
+        {/* Classes: Light */}
         <Classes />
+        {/* Schedule: Dark */}
         <Schedule />
+        {/* Trainers: Light */}
         <Trainers />
+        {/* Testimonials: Dark */}
         <Testimonials />
+        {/* Pricing: Light */}
         <Pricing />
+        {/* FAQ: Dark */}
         <BeginnerFaq />
+        {/* CTA: RED */}
         <CTA />
+        {/* Contact: Light */}
         <Contact />
       </main>
+      {/* Footer: Dark */}
       <Footer />
     </>
   );

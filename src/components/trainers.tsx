@@ -23,14 +23,14 @@ const trainers = [
 
 export function Trainers() {
   return (
-    <section id="trainers" className="py-[clamp(80px,10vw,140px)] bg-bxg-dark">
+    <section id="trainers" className="section-light py-[clamp(80px,10vw,140px)]">
       <div className="max-w-[1200px] mx-auto px-5">
         <FadeUp>
           <div className="section-label">Your Coaches</div>
-          <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-white">
+          <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-[#0C0C0C]">
             MEET THE COACHES
           </h2>
-          <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#777] max-w-[520px] leading-[1.8] font-light mt-4">
+          <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#666] max-w-[520px] leading-[1.8] font-light mt-4">
             Every session is led by experienced coaches who bring real fight
             knowledge and a passion for teaching to every class.
           </p>
@@ -43,7 +43,7 @@ export function Trainers() {
               variants={staggerItem}
               className="relative overflow-hidden group"
             >
-              <div className="relative aspect-[3/4] bg-bxg-dark-2 overflow-hidden">
+              <div className="relative aspect-[3/4] bg-[#0C0C0C] overflow-hidden">
                 <Image
                   src={trainer.image}
                   alt={`Coach ${trainer.name}`}
@@ -53,15 +53,15 @@ export function Trainers() {
                 />
 
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/30 to-transparent" />
 
-                {/* Red accent line at top */}
+                {/* Red accent line at top — visible on hover */}
                 <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[3px] bg-bxg-red transition-all duration-700" />
 
                 {/* Info at bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 pb-8">
                   <div className="flex items-baseline gap-3">
-                    <div className="font-[family-name:var(--font-bebas)] text-[2rem] tracking-[2px] text-white">
+                    <div className="font-[family-name:var(--font-bebas)] text-[2.4rem] tracking-[2px] text-white">
                       {trainer.name}
                     </div>
                     {trainer.nickname && (
@@ -74,7 +74,7 @@ export function Trainers() {
                     {trainer.role}
                   </div>
                   <div className="w-8 h-[2px] bg-bxg-red/40 mt-3 mb-3" />
-                  <div className="text-[0.84rem] text-[#999] leading-[1.65]">
+                  <div className="text-[0.84rem] text-[#CCC] leading-[1.65]">
                     {trainer.bio}
                   </div>
                 </div>

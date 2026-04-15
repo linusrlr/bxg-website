@@ -23,17 +23,17 @@ export function BeginnerFaq() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <section id="beginners" className="py-[clamp(80px,10vw,140px)] bg-bxg-dark">
+    <section id="beginners" className="section-dark py-[clamp(80px,10vw,140px)]">
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Getting Started — red numbers, no emojis */}
+          {/* Getting Started — red numbers */}
           <div>
             <FadeUp>
               <div className="section-label">New Here?</div>
-              <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-white">
+              <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-[#F5F5F0]">
                 YOUR FIRST CLASS
               </h2>
-              <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#777] max-w-[520px] leading-[1.8] font-light mt-4">
+              <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#999] max-w-[520px] leading-[1.8] font-light mt-4">
                 Starting something new takes courage. Here&apos;s exactly how
                 your first visit works — no surprises.
               </p>
@@ -47,10 +47,10 @@ export function BeginnerFaq() {
                       {String(i + 1).padStart(2, "0")}
                     </div>
                     <div>
-                      <h4 className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.9rem] tracking-[1.5px] uppercase text-white mb-1.5">
+                      <h4 className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.9rem] tracking-[1.5px] uppercase text-[#F5F5F0] mb-1.5">
                         {step.title}
                       </h4>
-                      <p className="text-[0.85rem] text-[#888] leading-[1.7]">
+                      <p className="text-[0.85rem] text-[#999] leading-[1.7]">
                         {step.desc}
                       </p>
                     </div>
@@ -60,11 +60,11 @@ export function BeginnerFaq() {
             </div>
           </div>
 
-          {/* FAQ — no emojis */}
+          {/* FAQ */}
           <div>
             <FadeUp>
               <div className="section-label">FAQ</div>
-              <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-white">
+              <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-[#F5F5F0]">
                 COMMON QUESTIONS
               </h2>
             </FadeUp>
@@ -75,7 +75,7 @@ export function BeginnerFaq() {
                   <div className="border-b border-white/[0.06]">
                     <button
                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                      className="w-full text-left font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.9rem] tracking-[1px] text-white py-5 flex items-center justify-between hover:text-bxg-red transition-colors duration-300"
+                      className="w-full text-left font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.9rem] tracking-[1px] text-[#F5F5F0] py-5 flex items-center justify-between hover:text-bxg-red transition-colors duration-300"
                     >
                       {faq.q}
                       <motion.span
@@ -95,7 +95,7 @@ export function BeginnerFaq() {
                           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                           className="overflow-hidden"
                         >
-                          <p className="pb-5 text-[0.85rem] text-[#888] leading-[1.7]">
+                          <p className="pb-5 text-[0.85rem] text-[#999] leading-[1.7]">
                             {faq.a}
                           </p>
                         </motion.div>

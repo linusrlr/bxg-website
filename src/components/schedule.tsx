@@ -87,11 +87,11 @@ export function Schedule() {
   const [activeDay, setActiveDay] = useState("mon");
 
   return (
-    <section id="schedule" className="py-[clamp(80px,10vw,140px)]">
+    <section id="schedule" className="section-dark py-[clamp(80px,10vw,140px)]">
       <div className="max-w-[1200px] mx-auto px-5">
         <FadeUp>
           <div className="section-label">Weekly Timetable</div>
-          <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-white">
+          <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-[#F5F5F0]">
             CLASS SCHEDULE
           </h2>
         </FadeUp>
@@ -103,10 +103,10 @@ export function Schedule() {
               <button
                 key={day.key}
                 onClick={() => setActiveDay(day.key)}
-                className={`relative font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.75rem] tracking-[2px] uppercase py-3 px-5 whitespace-nowrap flex-shrink-0 transition-all duration-300 ${
+                className={`relative font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.75rem] tracking-[2px] uppercase py-3 px-6 whitespace-nowrap flex-shrink-0 transition-all duration-300 ${
                   activeDay === day.key
-                    ? "bg-bxg-red text-white"
-                    : "bg-bxg-dark-2 text-[#666] hover:text-white"
+                    ? "bg-bxg-red text-white shadow-[0_4px_20px_rgba(227,27,35,0.3)]"
+                    : "bg-[#161618] text-[#666] hover:text-[#F5F5F0]"
                 }`}
               >
                 {day.label}
@@ -122,7 +122,7 @@ export function Schedule() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.25 }}
-              className="bg-bxg-dark-2/50"
+              className="bg-[#161618]/50"
             >
               {schedule[activeDay].map((slot, i) => {
                 const colors = classColors[slot.type];
@@ -131,7 +131,7 @@ export function Schedule() {
                     key={i}
                     className="flex items-stretch border-b border-white/[0.04] last:border-b-0"
                   >
-                    <div className="w-[100px] sm:w-[130px] flex-shrink-0 py-4 px-4 font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.78rem] tracking-[1px] text-[#666] flex items-center">
+                    <div className="w-[100px] sm:w-[130px] flex-shrink-0 py-4 px-4 font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.78rem] tracking-[1px] text-[#999] flex items-center">
                       {slot.time}
                     </div>
                     <div
@@ -157,12 +157,12 @@ export function Schedule() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Legend — colored squares only, no emojis */}
+          {/* Legend */}
           <div className="flex gap-6 flex-wrap mt-6 pt-4 border-t border-white/[0.06]">
             {legend.map((item) => (
               <div
                 key={item.label}
-                className="flex items-center gap-2.5 font-[family-name:var(--font-barlow-condensed)] text-[0.7rem] tracking-[1px] uppercase text-[#666]"
+                className="flex items-center gap-2.5 font-[family-name:var(--font-barlow-condensed)] text-[0.7rem] tracking-[1px] uppercase text-[#999]"
               >
                 <div
                   className="w-[10px] h-[10px]"

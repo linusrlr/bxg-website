@@ -7,23 +7,22 @@ const WHATSAPP_URL = "https://wa.me/6588679387?text=Hi%2C%20I%27d%20like%20to%20
 
 export function CTA() {
   return (
-    <section className="py-[clamp(80px,10vw,140px)] text-center relative overflow-hidden">
-      {/* Radial red glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,rgba(227,27,35,0.1),transparent_70%)]" />
+    <section className="section-red py-[clamp(80px,10vw,140px)] text-center relative overflow-hidden">
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
 
       <div className="max-w-[1200px] mx-auto px-5 relative">
         <FadeUp>
-          {/* Thin accent line */}
-          <div className="w-8 h-[2px] bg-bxg-red mx-auto mb-6" />
-          <div className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.65rem] tracking-[4px] uppercase text-white/40 mb-3">
+          <div className="w-12 h-[2px] bg-white/40 mx-auto mb-6" />
+          <div className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.65rem] tracking-[4px] uppercase text-white/60 mb-3">
             Ready?
           </div>
-          <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.5rem,6vw,4.5rem)] tracking-[3px] leading-[1] text-white mb-5">
+          <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(3rem,8vw,6rem)] tracking-[3px] leading-[0.95] text-white mb-5">
             YOUR JOURNEY
             <br />
-            <span className="text-bxg-red">STARTS HERE</span>
+            STARTS HERE
           </h2>
-          <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#777] leading-[1.8] font-light mx-auto max-w-[520px] mb-10">
+          <p className="text-[clamp(0.9rem,2.5vw,1.15rem)] text-white/70 leading-[1.8] font-light mx-auto max-w-[520px] mb-10">
             No pressure. No commitment. Book a session, show up, train hard,
             and see if BXG is right for you.
           </p>
@@ -35,7 +34,7 @@ export function CTA() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-bxg-red text-white font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.85rem] tracking-[2.5px] uppercase px-10 py-[16px] hover:bg-bxg-red-dark hover:shadow-[0_0_40px_rgba(227,27,35,0.3)] transition-all duration-300 active:scale-[0.97]"
+              className="inline-flex items-center gap-3 bg-white text-bxg-red font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.85rem] tracking-[2.5px] uppercase px-10 py-[16px] hover:bg-white/90 transition-all duration-300 active:scale-[0.97]"
             >
               Book a Class
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -46,7 +45,7 @@ export function CTA() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#25D366] text-white font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.85rem] tracking-[2.5px] uppercase px-10 py-[16px] hover:bg-[#1DA851] transition-all duration-300 active:scale-[0.97]"
+              className="inline-flex items-center gap-3 bg-transparent text-white font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.85rem] tracking-[2.5px] uppercase px-10 py-[16px] border-2 border-white/40 hover:border-white hover:bg-white/10 transition-all duration-300 active:scale-[0.97]"
             >
               WhatsApp Us
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

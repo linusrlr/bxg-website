@@ -78,18 +78,18 @@ const benefits = [
 
 export function Benefits() {
   return (
-    <section id="benefits" className="py-[clamp(80px,10vw,140px)] bg-bxg-dark relative">
+    <section id="benefits" className="section-dark py-[clamp(80px,10vw,140px)] relative">
       <div className="max-w-[1200px] mx-auto px-5">
         {/* Header */}
         <FadeUp className="text-center max-w-[600px] mx-auto mb-16">
           <div className="w-8 h-[2px] bg-bxg-red mx-auto mb-6" />
-          <div className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.65rem] tracking-[4px] uppercase text-white/40 mb-3">
+          <div className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.65rem] tracking-[4px] uppercase text-[#999] mb-3">
             Why Muay Thai
           </div>
-          <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[3px] leading-[1] text-white">
+          <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[3px] leading-[1] text-[#F5F5F0]">
             THE ART OF EIGHT LIMBS
           </h2>
-          <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#777] leading-[1.8] font-light mt-4 mx-auto">
+          <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#999] leading-[1.8] font-light mt-4 mx-auto">
             Muay Thai isn&apos;t just a workout — it&apos;s a complete system
             that strengthens your body, sharpens your mind, and builds unshakable
             confidence.
@@ -97,28 +97,34 @@ export function Benefits() {
         </FadeUp>
 
         {/* Grid */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((b) => (
             <motion.div
               key={b.title}
               variants={staggerItem}
-              className="group relative"
+              whileHover={{ y: -6 }}
+              className="group relative bg-[#161618] p-8 overflow-hidden transition-shadow duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.4)]"
             >
+              {/* Huge faded number in background */}
+              <div className="absolute top-2 right-4 font-[family-name:var(--font-bebas)] text-[8rem] leading-none text-white/[0.03] group-hover:text-white/[0.06] transition-colors duration-500 select-none pointer-events-none">
+                {b.num}
+              </div>
+
               {/* Icon + Number */}
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3 mb-4 relative z-[1]">
                 <div className="opacity-60 group-hover:opacity-100 transition-opacity duration-500">
                   {benefitIcons[b.num]}
                 </div>
-                <div className="font-[family-name:var(--font-bebas)] text-[2.5rem] text-bxg-red/20 group-hover:text-bxg-red/40 leading-none transition-colors duration-500">
+                <div className="font-[family-name:var(--font-bebas)] text-[1.8rem] text-bxg-red/30 group-hover:text-bxg-red/60 leading-none transition-colors duration-500">
                   {b.num}
                 </div>
               </div>
               {/* Thin red line */}
-              <div className="w-8 h-[2px] bg-bxg-red/40 group-hover:w-12 group-hover:bg-bxg-red transition-all duration-500 mb-4" />
-              <h3 className="font-[family-name:var(--font-bebas)] text-[1.3rem] tracking-[1.5px] text-white mb-2">
+              <div className="w-8 h-[2px] bg-bxg-red/40 group-hover:w-12 group-hover:bg-bxg-red transition-all duration-500 mb-4 relative z-[1]" />
+              <h3 className="font-[family-name:var(--font-bebas)] text-[1.3rem] tracking-[1.5px] text-[#F5F5F0] mb-2 relative z-[1]">
                 {b.title}
               </h3>
-              <p className="text-[0.85rem] text-[#777] leading-[1.7]">
+              <p className="text-[0.85rem] text-[#999] leading-[1.7] relative z-[1]">
                 {b.desc}
               </p>
             </motion.div>
