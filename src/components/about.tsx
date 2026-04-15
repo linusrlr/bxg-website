@@ -12,66 +12,67 @@ const features = [
 
 export function About() {
   return (
-    <section id="about" className="py-[clamp(56px,8vw,110px)]">
+    <section id="about" className="py-[clamp(80px,10vw,140px)] relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-5">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-15 items-center">
-          {/* Image */}
-          <ClipReveal>
-            <div className="relative aspect-[4/5] overflow-hidden bg-bxg-dark-2">
-              <Image
-                src="/images/gym-training.jpeg"
-                alt="BXG Muay Thai gym interior"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute bottom-4 left-4 font-[family-name:var(--font-bebas)] text-[4rem] text-bxg-red/12 leading-none">
-                2003
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          {/* Image — full left column with clip-path reveal */}
+          <div className="lg:col-span-6">
+            <ClipReveal>
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image
+                  src="/images/gym-training.jpeg"
+                  alt="BXG Muay Thai gym interior"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                {/* Red accent top line */}
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-bxg-red" />
+                {/* Subtle gradient at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#0A0A0A]/60 to-transparent" />
               </div>
-              {/* Red accent line */}
-              <div className="absolute top-0 left-0 w-full h-[3px] bg-bxg-red" />
-            </div>
-          </ClipReveal>
+            </ClipReveal>
+          </div>
 
-          {/* Text */}
-          <div>
+          {/* Text — takes 6 of 12 cols */}
+          <div className="lg:col-span-6">
             <FadeUp>
-              <div className="section-label mb-2.5">Our Story</div>
+              <div className="section-label mb-3">Our Story</div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2rem,5vw,3.8rem)] tracking-[2px] leading-[1.05] text-white">
+              <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-white">
                 MORE THAN A GYM.
                 <br />
-                A LEGACY REBORN.
+                <span className="text-bxg-red">A LEGACY REBORN.</span>
               </h2>
             </FadeUp>
             <FadeUp delay={0.2}>
-              <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#999] max-w-[560px] leading-[1.7] font-light mt-4">
-                Founded in 2003 as BXG Boxing & Fitness, we&apos;ve been
-                Singapore&apos;s home for authentic Muay Thai for over two decades.
-                Now reborn as{" "}
-                <strong className="text-white">BXG Muay Thai Academy</strong>,
-                our members stepped up to carry the legacy forward — with fresh
-                energy, a new name, and the same uncompromising standards.
+              <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#A0A0A0] max-w-[560px] leading-[1.8] font-light mt-5">
+                Founded as BXG Boxing &amp; Fitness in 2003, the gym was
+                Singapore&apos;s home for Muay Thai for over two decades. When
+                the original chapter closed in 2025, coaches Martin and
+                Damien — who trained and grew up in the BXG system — opened{" "}
+                <strong className="text-white font-medium">BXG Muay Thai Academy</strong>{" "}
+                to carry the legacy forward. Same values. New chapter.
               </p>
             </FadeUp>
             <FadeUp delay={0.3}>
-              <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#999] max-w-[560px] leading-[1.7] font-light mt-3">
-                Led by coaches Martin and Damien, we run over 30 classes per
+              <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#A0A0A0] max-w-[560px] leading-[1.8] font-light mt-4">
+                Now at 260 Tanjong Katong Road, we run over 30 classes per
                 week — from fundamentals and pad work to advanced application.
-                Located in the heart of Tanjong Katong, 7 days a week.
+                Open 7 days a week for all skill levels.
               </p>
             </FadeUp>
 
-            {/* Feature Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+            {/* Feature Grid — thin red left border, NO emojis */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
               {features.map((feat, i) => (
-                <FadeUp key={feat.title} delay={0.3 + i * 0.1}>
-                  <div className="p-4 bg-bxg-dark-2 border-l-2 border-bxg-red">
-                    <h4 className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.78rem] tracking-[1.5px] uppercase text-white mb-1">
+                <FadeUp key={feat.title} delay={0.35 + i * 0.08}>
+                  <div className="py-4 pl-4 border-l-2 border-bxg-red/60 hover:border-bxg-red transition-colors duration-300">
+                    <h4 className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.8rem] tracking-[1.5px] uppercase text-white mb-1">
                       {feat.title}
                     </h4>
-                    <p className="text-[0.8rem] text-[#999] leading-[1.55]">
+                    <p className="text-[0.82rem] text-[#999] leading-[1.6]">
                       {feat.desc}
                     </p>
                   </div>

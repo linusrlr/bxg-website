@@ -3,65 +3,84 @@
 import { motion } from "framer-motion";
 import { FadeUp, StaggerContainer, staggerItem } from "@/lib/motion";
 
-const testimonials = [
+const reviews = [
   {
-    text: "I walked in as a complete beginner. Six months later, I've lost 12kg, gained serious confidence, and I actually look forward to training every single day.",
-    name: "Mark K.",
-    detail: "Beginner → Intermediate",
-    initials: "MK",
+    text: "The trainers were super friendly and patient, and the pace was very well suited for beginners. We really appreciated that they took the time to guide us and correct our posture. Absolutely recommended!",
+    name: "Sarah",
+    stars: 5,
   },
   {
-    text: "As an expat, BXG became my second home. The coaches are incredibly skilled but also genuinely welcoming. Best community I've found in Singapore.",
-    name: "Jessica L.",
-    detail: "Expat · 1 year member",
-    initials: "JL",
+    text: "The trainers were patient, motivating and friendly! Great for beginners and advanced! Highly recommended for anyone looking for a great Muay Thai experience!",
+    name: "Yeo",
+    stars: 5,
   },
   {
-    text: "I've trained at gyms across Southeast Asia. BXG's coaching quality and legacy is something special — you feel the authenticity from your very first session.",
-    name: "Ryan T.",
-    detail: "Advanced · Competition Team",
-    initials: "RT",
+    text: "I attended the beginner class and learned a lot. The instructors were very motivating. I would recommend going with friends!",
+    name: "JiaRong Sim",
+    stars: 5,
   },
 ];
 
+function StarIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" className="text-[#FBBC04]">
+      <path d="M10 1l2.47 5.01L18 6.94l-4 3.9.94 5.51L10 13.77l-4.94 2.58L6 10.84l-4-3.9 5.53-.93L10 1z"/>
+    </svg>
+  );
+}
+
 export function Testimonials() {
   return (
-    <section
-      id="testimonials"
-      className="py-[clamp(56px,8vw,110px)]"
-    >
+    <section id="testimonials" className="py-[clamp(80px,10vw,140px)]">
       <div className="max-w-[1200px] mx-auto px-5">
-        <FadeUp>
-          <div className="section-label">Members Say</div>
-          <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2rem,5vw,3.8rem)] tracking-[2px] leading-[1.05] text-white">
-            REAL STORIES
-          </h2>
+        <FadeUp className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-12">
+          <div>
+            <div className="section-label">Google Reviews</div>
+            <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-white">
+              WHAT MEMBERS SAY
+            </h2>
+          </div>
+          {/* Google Rating Badge */}
+          <div className="flex items-center gap-3 bg-bxg-dark-2 px-5 py-3">
+            <div className="flex items-center gap-1">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 1l2.47 5.01L18 6.94l-4 3.9.94 5.51L10 13.77l-4.94 2.58L6 10.84l-4-3.9 5.53-.93L10 1z" fill="#FBBC04"/>
+              </svg>
+              <span className="font-[family-name:var(--font-bebas)] text-[1.6rem] text-white leading-none">
+                5.0
+              </span>
+            </div>
+            <div className="w-[1px] h-6 bg-white/10" />
+            <span className="font-[family-name:var(--font-barlow-condensed)] text-[0.72rem] tracking-[1px] uppercase text-[#888]">
+              10 Reviews on Google
+            </span>
+          </div>
         </FadeUp>
 
-        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
-          {testimonials.map((t) => (
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {reviews.map((r) => (
             <motion.div
-              key={t.name}
+              key={r.name}
               variants={staggerItem}
-              className="bg-bxg-dark-2 p-8 border-t-2 border-transparent hover:border-bxg-red transition-colors duration-300"
+              className="bg-bxg-dark-2 p-7 relative group hover:bg-bxg-dark-2/80 transition-colors duration-300"
             >
-              <div className="font-[family-name:var(--font-bebas)] text-[2.5rem] text-bxg-red opacity-40 leading-none mb-3">
+              {/* Quotation mark accent */}
+              <div className="font-[family-name:var(--font-bebas)] text-[3rem] text-bxg-red/20 leading-none mb-2 select-none">
                 &ldquo;
               </div>
-              <p className="text-[0.9rem] text-[#CCC] leading-[1.75] italic mb-5">
-                {t.text}
+
+              <p className="text-[0.88rem] text-[#CCC] leading-[1.75] mb-6 min-h-[60px]">
+                {r.text}
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-bxg-dark-3 rounded-full flex items-center justify-center font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.75rem] text-bxg-red">
-                  {t.initials}
-                </div>
-                <div>
-                  <div className="font-semibold text-[0.85rem] text-white">
-                    {t.name}
-                  </div>
-                  <div className="text-[0.7rem] text-[#666] mt-[2px]">
-                    {t.detail}
-                  </div>
+
+              <div className="flex items-center justify-between pt-4 border-t border-white/[0.06]">
+                <span className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.82rem] tracking-[0.5px] text-white">
+                  {r.name}
+                </span>
+                <div className="flex gap-[2px]">
+                  {Array.from({ length: r.stars }).map((_, i) => (
+                    <StarIcon key={i} />
+                  ))}
                 </div>
               </div>
             </motion.div>

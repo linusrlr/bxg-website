@@ -6,7 +6,7 @@ Website for BXG Muay Thai Academy in Singapore. Singapore's original Muay Thai a
 ## Links
 - **GitHub:** https://github.com/linusrlr/bxg-website
 - **Booking:** https://bookings.vibefam.com/BXGMuaythai
-- **WhatsApp:** +65 6348 8380
+- **WhatsApp:** +65 8867 9387
 
 ## Tech-Stack
 - Next.js (App Router)

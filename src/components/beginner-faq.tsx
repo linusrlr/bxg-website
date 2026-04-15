@@ -23,34 +23,34 @@ export function BeginnerFaq() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <section id="beginners" className="py-[clamp(56px,8vw,110px)] bg-bxg-dark">
+    <section id="beginners" className="py-[clamp(80px,10vw,140px)] bg-bxg-dark">
       <div className="max-w-[1200px] mx-auto px-5">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-15 items-start">
-          {/* Getting Started */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          {/* Getting Started — red numbers, no emojis */}
           <div>
             <FadeUp>
               <div className="section-label">New Here?</div>
-              <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2rem,5vw,3.8rem)] tracking-[2px] leading-[1.05] text-white">
+              <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-white">
                 YOUR FIRST CLASS
               </h2>
-              <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#999] max-w-[560px] leading-[1.7] font-light mt-3">
+              <p className="text-[clamp(0.9rem,2.5vw,1.05rem)] text-[#777] max-w-[520px] leading-[1.8] font-light mt-4">
                 Starting something new takes courage. Here&apos;s exactly how
                 your first visit works — no surprises.
               </p>
             </FadeUp>
 
-            <div className="mt-8 space-y-0">
+            <div className="mt-10 space-y-0">
               {steps.map((step, i) => (
                 <FadeUp key={step.title} delay={i * 0.1}>
-                  <div className="py-5 border-b border-white/6 grid grid-cols-[48px_1fr] gap-4">
-                    <div className="font-[family-name:var(--font-bebas)] text-[2rem] text-bxg-red leading-none">
+                  <div className="py-5 border-b border-white/[0.06] grid grid-cols-[52px_1fr] gap-4 items-start">
+                    <div className="font-[family-name:var(--font-bebas)] text-[2.2rem] text-bxg-red leading-none">
                       {String(i + 1).padStart(2, "0")}
                     </div>
                     <div>
-                      <h4 className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.9rem] tracking-[1px] uppercase text-white mb-1">
+                      <h4 className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.9rem] tracking-[1.5px] uppercase text-white mb-1.5">
                         {step.title}
                       </h4>
-                      <p className="text-[0.84rem] text-[#999] leading-[1.65]">
+                      <p className="text-[0.85rem] text-[#888] leading-[1.7]">
                         {step.desc}
                       </p>
                     </div>
@@ -60,27 +60,28 @@ export function BeginnerFaq() {
             </div>
           </div>
 
-          {/* FAQ */}
+          {/* FAQ — no emojis */}
           <div>
             <FadeUp>
               <div className="section-label">FAQ</div>
-              <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2rem,5vw,3.8rem)] tracking-[2px] leading-[1.05] text-white">
+              <h2 className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,4rem)] tracking-[2px] leading-[1] text-white">
                 COMMON QUESTIONS
               </h2>
             </FadeUp>
 
-            <div className="mt-8">
+            <div className="mt-10">
               {faqs.map((faq, i) => (
-                <FadeUp key={faq.q} delay={i * 0.08}>
-                  <div className="border-b border-white/6">
+                <FadeUp key={faq.q} delay={i * 0.06}>
+                  <div className="border-b border-white/[0.06]">
                     <button
                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                      className="w-full text-left font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.88rem] tracking-[1px] text-white py-4 flex items-center justify-between hover:text-bxg-red transition-colors"
+                      className="w-full text-left font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.9rem] tracking-[1px] text-white py-5 flex items-center justify-between hover:text-bxg-red transition-colors duration-300"
                     >
                       {faq.q}
                       <motion.span
                         animate={{ rotate: openFaq === i ? 45 : 0 }}
-                        className="font-[family-name:var(--font-bebas)] text-[1.3rem] text-bxg-red"
+                        transition={{ duration: 0.2 }}
+                        className="font-[family-name:var(--font-bebas)] text-[1.4rem] text-bxg-red flex-shrink-0 ml-4"
                       >
                         +
                       </motion.span>
@@ -91,10 +92,10 @@ export function BeginnerFaq() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
+                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                           className="overflow-hidden"
                         >
-                          <p className="pb-4 text-[0.84rem] text-[#999] leading-[1.65]">
+                          <p className="pb-5 text-[0.85rem] text-[#888] leading-[1.7]">
                             {faq.a}
                           </p>
                         </motion.div>
