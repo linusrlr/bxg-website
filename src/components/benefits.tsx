@@ -110,14 +110,9 @@ export function Benefits() {
                 {b.num}
               </div>
 
-              {/* Icon + Number */}
-              <div className="flex items-center gap-3 mb-4 relative z-[1]">
-                <div className="opacity-60 group-hover:opacity-100 transition-opacity duration-500">
-                  {benefitIcons[b.num]}
-                </div>
-                <div className="font-[family-name:var(--font-bebas)] text-[1.8rem] text-bxg-red/30 group-hover:text-bxg-red/60 leading-none transition-colors duration-500">
-                  {b.num}
-                </div>
+              {/* Icon */}
+              <div className="mb-4 relative z-[1] opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+                {benefitIcons[b.num]}
               </div>
               {/* Thin red line */}
               <div className="w-8 h-[2px] bg-bxg-red/40 group-hover:w-12 group-hover:bg-bxg-red transition-all duration-500 mb-4 relative z-[1]" />

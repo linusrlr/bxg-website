@@ -17,8 +17,8 @@
   --color-bxg-dark: #0C0C0C;
   --color-bxg-dark-2: #161618;
   --color-bxg-dark-3: #1A1A1C;
-  --color-bxg-light: #F5F5F0;
-  --color-bxg-light-card: #EBEBEA;
+  --color-bxg-light: #E8E8E8;
+  --color-bxg-light-card: #D8D8D8;
   --color-bxg-red: #E31B23;
   --color-bxg-red-dark: #B8151B;
   --color-bxg-gold: #D4A843;
@@ -119,7 +119,7 @@
 /* ===== Section Theme Classes ===== */
 
 .section-light {
-  background: #F5F5F0;
+  background: #E0E0DE;
   color: #0C0C0C;
 }
 
