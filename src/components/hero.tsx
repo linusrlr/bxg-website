@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const BOOKING_URL = "https://bookings.vibefam.com/BXGMuaythai";
@@ -16,62 +15,45 @@ const stats = [
 const headlineWords = ["TRAIN", "WITH", "PURPOSE."];
 
 export function Hero() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
-  const imgOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, 120]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.55, 0.9]);
-
   return (
     <section
-      ref={ref}
       id="hero"
       className="relative h-screen flex flex-col overflow-hidden section-dark"
     >
-      {/* Background Image with Cinematic Zoom */}
-      <motion.div
-        style={{ scale: imgScale, opacity: imgOpacity }}
+      {/* Background Image — static with slight CSS zoom, no scroll transforms */}
+      <div
         className="absolute inset-0 z-0"
+        style={{ willChange: "auto" }}
       >
         <Image
           src="/images/gym-training.jpeg"
           alt="BXG Muay Thai Training"
           fill
-          className="object-cover"
+          className="object-cover scale-[1.1]"
           priority
           quality={90}
         />
-      </motion.div>
+      </div>
 
-      {/* Gradient Overlays */}
-      <motion.div
-        style={{ opacity: overlayOpacity }}
-        className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0C0C0C]/70 via-[#0C0C0C]/30 to-[#0C0C0C]/90"
-      />
+      {/* Gradient Overlays — static, no scroll-driven opacity */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0C0C0C]/70 via-[#0C0C0C]/30 to-[#0C0C0C]/90" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0C0C0C]/80 via-transparent to-transparent" />
 
-      {/* Main Content — Left-aligned, editorial */}
-      <motion.div
-        style={{ y: contentY }}
-        className="relative z-[2] flex-1 flex flex-col justify-center max-w-[1200px] mx-auto px-5 w-full pt-20"
-      >
+      {/* Main Content — static position, stagger entry animations only */}
+      <div className="relative z-[2] flex-1 flex flex-col justify-center max-w-[1200px] mx-auto px-5 w-full pt-20">
         {/* Overline */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.7rem] tracking-[5px] uppercase text-white/60 mb-6 flex items-center gap-4"
+          className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[clamp(0.55rem,1.8vw,0.7rem)] tracking-[3px] sm:tracking-[5px] uppercase text-white/60 mb-6 flex items-center gap-3 sm:gap-4"
         >
-          <span className="w-10 h-[2px] bg-bxg-red" />
+          <span className="w-8 sm:w-10 h-[2px] bg-bxg-red" />
           BXG Muay Thai Academy — Since 2003
         </motion.div>
 
         {/* Headline — word by word stagger, left-aligned */}
-        <h1 className="font-[family-name:var(--font-bebas)] text-[clamp(5rem,15vw,12rem)] leading-[0.85] tracking-[4px] text-white mb-6 overflow-hidden">
+        <h1 className="font-[family-name:var(--font-bebas)] text-[clamp(4rem,13vw,12rem)] leading-[0.85] tracking-[4px] text-white mb-6 overflow-hidden">
           {headlineWords.map((word, i) => (
             <motion.span
               key={i}
@@ -96,7 +78,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[clamp(0.95rem,2.5vw,1.15rem)] font-light text-white/50 max-w-[480px] leading-[1.8] mb-10"
+          className="text-[clamp(0.9rem,2.5vw,1.15rem)] font-light text-white/50 max-w-[480px] leading-[1.8] mb-10"
         >
           Singapore&apos;s original Muay Thai academy. 22 years of forging
           fighters and transforming lives. From first punch to fight night.
@@ -127,28 +109,28 @@ export function Hero() {
             Explore Programs
           </a>
         </motion.div>
-      </motion.div>
+      </div>
 
-      {/* Stats Bar — fixed at bottom of viewport */}
+      {/* Stats Bar — 2x2 grid on mobile, row on desktop */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.5, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-[2] w-full bg-[#0C0C0C]/80 backdrop-blur-md border-t border-white/[0.08]"
       >
-        <div className="max-w-[1200px] mx-auto px-5 py-5 flex justify-between items-center gap-6 flex-wrap">
+        <div className="max-w-[1200px] mx-auto px-5 py-4 sm:py-5 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat) => (
-            <div key={stat.label} className="flex items-center gap-3">
-              <div className="font-[family-name:var(--font-bebas)] text-[clamp(2.2rem,5vw,3.2rem)] text-white leading-none flex items-center gap-1">
+            <div key={stat.label} className="flex items-center gap-3 justify-center sm:justify-start">
+              <div className="font-[family-name:var(--font-bebas)] text-[clamp(1.8rem,4vw,3.2rem)] text-white leading-none flex items-center gap-1">
                 {stat.icon && (
-                  <svg width="22" height="22" viewBox="0 0 20 20" fill="none" className="text-[#FBBC04] -mt-1 mr-1">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none" className="text-[#FBBC04] -mt-1 mr-1 w-[14px] sm:w-[22px] h-[14px] sm:h-[22px]">
                     <path d="M10 1l2.47 5.01L18 6.94l-4 3.9.94 5.51L10 13.77l-4.94 2.58L6 10.84l-4-3.9 5.53-.93L10 1z" fill="currentColor"/>
                   </svg>
                 )}
                 {stat.value}
                 <span className="text-bxg-red">{stat.suffix}</span>
               </div>
-              <div className="font-[family-name:var(--font-barlow-condensed)] text-[0.65rem] tracking-[2.5px] uppercase text-white/40">
+              <div className="font-[family-name:var(--font-barlow-condensed)] text-[0.55rem] sm:text-[0.65rem] tracking-[2px] sm:tracking-[2.5px] uppercase text-white/40">
                 {stat.label}
               </div>
             </div>

@@ -103,7 +103,7 @@ export function Schedule() {
               <button
                 key={day.key}
                 onClick={() => setActiveDay(day.key)}
-                className={`relative font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.75rem] tracking-[2px] uppercase py-3 px-6 whitespace-nowrap flex-shrink-0 transition-all duration-300 ${
+                className={`relative font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.75rem] tracking-[2px] uppercase py-3.5 px-5 sm:px-6 whitespace-nowrap flex-shrink-0 transition-all duration-300 min-h-[44px] ${
                   activeDay === day.key
                     ? "bg-bxg-red text-white shadow-[0_4px_20px_rgba(227,27,35,0.3)]"
                     : "bg-[#161618] text-[#666] hover:text-[#F5F5F0]"
@@ -131,7 +131,7 @@ export function Schedule() {
                     key={i}
                     className="flex items-stretch border-b border-white/[0.04] last:border-b-0"
                   >
-                    <div className="w-[100px] sm:w-[130px] flex-shrink-0 py-4 px-4 font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.78rem] tracking-[1px] text-[#999] flex items-center">
+                    <div className="w-[90px] sm:w-[130px] flex-shrink-0 py-4 px-3 sm:px-4 font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.75rem] sm:text-[0.78rem] tracking-[1px] text-[#999] flex items-center">
                       {slot.time}
                     </div>
                     <div

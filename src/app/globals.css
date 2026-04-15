@@ -187,3 +187,22 @@
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* iOS momentum scrolling */
+@supports (-webkit-overflow-scrolling: touch) {
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Print styles — hide sticky mobile CTA and fixed elements */
+@media print {
+  [class*="fixed"][class*="bottom-0"] {
+    display: none !important;
+  }
+}
+
+/* Performance: reset will-change after animations settle */
+.animated-done {
+  will-change: auto;
+}

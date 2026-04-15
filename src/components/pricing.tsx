@@ -65,7 +65,7 @@ export function Pricing() {
           </p>
         </FadeUp>
 
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-[1100px] mx-auto">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-[1100px] mx-auto items-start">
           {plans.map((plan) => (
             <motion.div
               key={plan.name}

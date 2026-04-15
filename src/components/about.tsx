@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { FadeUp } from "@/lib/motion";
 
 const features = [
@@ -14,21 +13,43 @@ export function About() {
   return (
     <section id="about" className="section-light relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        {/* Image — edge to edge, full height */}
-        <div className="relative min-h-[400px] lg:min-h-[700px]">
-          <Image
-            src="/images/gym-training.jpeg"
-            alt="BXG Muay Thai training session"
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-          {/* Red accent stripe */}
+        {/* Typographic Graphic Panel — replaces duplicate photo */}
+        <div className="relative min-h-[250px] sm:min-h-[300px] lg:min-h-[700px] bg-[#0C0C0C] overflow-hidden flex items-center justify-center">
+          {/* Oversized BXG watermark */}
+          <span
+            className="absolute font-[family-name:var(--font-bebas)] text-[20vw] lg:text-[14vw] leading-none tracking-[0.04em] text-white/[0.04] select-none pointer-events-none"
+            aria-hidden="true"
+          >
+            BXG
+          </span>
+
+          {/* Vertical red accent line */}
+          <div className="absolute left-[15%] top-[10%] bottom-[10%] w-[3px] bg-bxg-red/30" />
+
+          {/* Content cluster */}
+          <div className="relative z-10 text-center lg:text-left lg:pl-[20%] px-6">
+            <div className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.65rem] tracking-[5px] uppercase text-white/30 mb-3">
+              Established
+            </div>
+            <div className="font-[family-name:var(--font-bebas)] text-bxg-red text-[clamp(2.5rem,6vw,4.5rem)] tracking-[6px] leading-none">
+              EST. 2003
+            </div>
+            <div className="mt-6 flex items-baseline gap-3 justify-center lg:justify-start">
+              <span className="font-[family-name:var(--font-bebas)] text-[clamp(3.5rem,8vw,6rem)] leading-none text-white/90">
+                22<span className="text-bxg-red">+</span>
+              </span>
+              <span className="font-[family-name:var(--font-barlow-condensed)] font-semibold text-[0.7rem] tracking-[3px] uppercase text-white/40">
+                Years of<br />Muay Thai
+              </span>
+            </div>
+          </div>
+
+          {/* Red accent stripe at right edge (desktop only) */}
           <div className="absolute top-0 right-0 w-[4px] h-full bg-bxg-red hidden lg:block" />
         </div>
 
         {/* Text */}
-        <div className="py-[clamp(48px,8vw,100px)] px-[clamp(24px,4vw,80px)]">
+        <div className="py-[clamp(40px,8vw,100px)] px-[clamp(20px,4vw,80px)]">
           <FadeUp>
             <div className="section-label mb-3" style={{ color: "#E31B23" }}>
               <span className="inline-block w-6 h-[2px] bg-bxg-red mr-2.5" />
